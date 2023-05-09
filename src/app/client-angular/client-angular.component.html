@@ -1,0 +1,44 @@
+{{clients | json }}
+
+
+<div class="row">
+<div class="col-8 m-auto">
+  <form [formGroup]="formGrupClient">
+
+    <div class="mb-3">
+      <label for="name" class="form-label">nome :</label>
+      <input type="text" formControlName="name" class="form-control" id="name" placeholder="nome">
+    </div>
+
+    <div class="mb-3">
+      <label for="email" class="form-label">Email address</label>
+      <input type="email" formControlName="email" class="form-control" id="email" placeholder="email">
+    </div>
+
+    <div>
+      <div class="mb-3 d-flex justify-content-end">
+        <button class="btn btn-primary" (click)="save()" >salvar</button>
+      </div>
+    </div>
+
+  </form>
+</div>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">name</th>
+      <th scope="col">email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let Client of clients">
+      <th scope="row">{{Client.id}}</th>
+      <td>{{Client.name}}</td>
+      <td>{{Client.email}}</td>
+
+    </tr>
+    </tbody>
+</table>
